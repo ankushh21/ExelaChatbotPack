@@ -1,10 +1,11 @@
-# ExelaChatbotPack
+# ExelaChatbot
 
-ExelaChatbotPack is a Python package that allows easy integration of Exela Chatbot functionalities into your projects. The package provides methods to insert files into the chatbot's index, query the index for responses, and delete the index as needed.
+ExelaChatbot is a Python package that allows easy integration of Exela Chatbot functionalities into your projects. The package provides methods to insert files into the chatbot's index, query the index for responses, and delete the index as needed.
 
 ## Dependencies
 - Python 3.11
 - pip
+- pip install virtualenv
 
 ## How to Use
 
@@ -41,16 +42,32 @@ insert_into_index(doc_file_path)
 ```python
 delete_index()
 ```
-- Delete all the files from Database.
 - It returns True if successful, False otherwise.
 
 ### Query Index:
 ```python
 query_index(query, chat_history=[])
 ```
-- This method takes a mandatory argument query (of type string) and an optional argument chat_history (of type List).
-- It returns a string message containing the generated response on success or a fixed message "Internal Error Occurred" on failure.
+- This method takes one mandatory argument 'query' and one optional argument 'chat_history'.
+- 'query' is of string type and 'chat_history' is of List type.
 
+```python
+Sample of chat_history: 
+[
+    [
+        "what is dmr?",
+        " DMR stands for Digital Mailroom, which is a service that offers secure digitization and storage of mail and packages."
+    ],
+    [],
+    []
+]
+```
+- This is a list of list. Two elements in each inner list contains question and its answer respectively.
+- A user should send atmost 3 latest pair of question and answer in the chat_history argument.
+- It returns a string message, generated response in case of success and a fix message "Internal Error Occurred" in
+case of failure.
+
+### Example
 ```python
 from ExelaChatbot import insert_into_index, query_index, delete_index
 
@@ -73,4 +90,4 @@ else:
 
 
 ### Note
-Please ensure that you have a valid API key and other necessary configurations set up in the .env file before using the ExelaChatbotPack functionalities.
+Please ensure that you have a valid API key and other necessary configurations set up in the .env file before using the ExelaChatbot functionalities.
