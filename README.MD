@@ -18,7 +18,7 @@ $ virtualenv EnvName
 
 3. Install the package from the provided wheel file:
 ```python
-$ pip install ExelaChatbot-0.1.1-py3-none-any.whl
+$ pip install ExelaChatbotPack-0.1.2-py3-none-any.whl
 ```
 
 4. The `.env` file should be placed in the same directory as your code to access environment variables.
